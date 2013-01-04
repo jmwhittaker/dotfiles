@@ -9,8 +9,8 @@ PROG=$0
 RSYNC="/usr/bin/rsync"
 LOGGER="/usr/bin/logger"
 SRC="/"
-DST="/Volumes/Macintosh HD/"
-EXCLUDE="$HOME/.dotfiles/backup_excludes.txt"
+DST="/Volumes/Rooibos/"
+EXCLUDE="$HOME/dotfiles/backup_excludes.txt"
 
 # --verbose                increase verbosity
 # --archive                turn on archive mode (recursive copy + retain attributes)
