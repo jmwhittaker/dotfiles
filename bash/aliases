@@ -8,6 +8,7 @@ alias -- -="cd -"
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dv="cd ~/dev"
 alias g="git"
 alias h="history"
 alias m="mate ."
@@ -96,10 +97,6 @@ alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
 
-
-###############
-# Personal Aliases
-###############
 
 # For pushing built Jekyll site to a gh-pages branch
 # Useful when you need to host on Github Pages with a site that

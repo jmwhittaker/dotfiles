@@ -12,3 +12,4 @@
 /tmp/*
 /Volumes/*
 */.Trash
+/Library/Spotlight/*

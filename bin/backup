@@ -1,12 +1,26 @@
 #!/bin/bash
 
+# Before use check your rsync version number
+# /usr/local/bin/rsync --version
+#
+# Install the latest version of rsync through Homebrew - https://github.com/Homebrew/homebrew-dupes
+
+# To debug the script run:
+# $ bash -x ~/dotfiles/bin/backup
+
+# If the disk isn't writable make sure read & write is allocated correctly in drive info
+
+
 # Disc backup script
 
 # IMPORTANT: Make sure you update the `DST` variable to match the name of the
 # destination backup drive
 
+# Run this file as SUDO!! sudo backup
+
 PROG=$0
-RSYNC="/usr/bin/rsync"
+#RSYNC="/usr/bin/rsync"
+RSYNC="/usr/local/bin/rsync"
 LOGGER="/usr/bin/logger"
 SRC="/"
 DST="/Volumes/Rooibos/"
@@ -21,6 +35,7 @@ EXCLUDE="$HOME/dotfiles/backup_excludes.txt"
 # --delete                 delete any files that have been deleted locally
 # --delete-excluded        delete any files (on DST) that are part of the list of excluded files
 # --exclude-from           reference a list of files to exclude
+# -X                       Extended Attributes for rsync 3.0. onwards
 
 if [ ! -r "$SRC" ]; then
     $LOGGER -t $PROG "Source $SRC not readable - Cannot start the sync process"
@@ -34,15 +49,16 @@ fi
 
 $LOGGER -t $PROG "Start rsync"
 
-sudo $RSYNC --verbose \
+sudo $RSYNC -v \
+            -v \
             --archive \
             --one-file-system \
             --sparse \
             --hard-links \
-            --extended-attributes \
             --delete \
             --delete-excluded \
             --exclude-from=$EXCLUDE \
+            -X \
             "$SRC" "$DST"
 
 $LOGGER -t $PROG "End rsync"
