@@ -12,7 +12,7 @@ alias dv="cd ~/dev"
 alias g="git"
 alias h="history"
 alias m="mate ."
-alias s="subl ."
+alias s="sublime ."
 alias o="open"
 alias oo="open ."
 
