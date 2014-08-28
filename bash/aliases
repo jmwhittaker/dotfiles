@@ -97,6 +97,37 @@ alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
 
+###############
+# Git
+###############
+
+alias com='git checkout origin/master'
+alias gf='git fetch'
+alias st='git status -s'
+alias cp='git cherry-pick'
+alias ci='git commit'
+alias gca='git commit --amend'
+alias pg='git push gerrit HEAD:refs/for/master'
+alias pd='git push gerrit head:refs/drafts/master'
+alias gown='git commit --amend --no-edit --reset-author'
+alias gl='git log --graph -10 --pretty=short'
+
+function yesterworkday()
+{
+    if [[ "1" == "$(date +%u)" ]]
+    then
+        echo "last friday"
+    else
+        echo "yesterday"
+    fi
+}
+
+alias standup='git log --pretty=format:"%Cred%h%Creset - %C(yellow)%ae%Creset - %Cgreen%cd%Creset - %s%Creset" --since="$(yesterworkday)" --abbrev-commit --date=relative --all --author="jmwhittaker@twitter.com" --no-merges'
+
+
+###############
+# Personal Aliases
+###############
 
 # For pushing built Jekyll site to a gh-pages branch
 # Useful when you need to host on Github Pages with a site that

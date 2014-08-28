@@ -10,22 +10,38 @@ if [ -d "/usr/local/bin" ]; then
     PATH="/usr/local/bin:$PATH"
 fi
 
+# Android Development
+ANDROID_HOME="/Applications/Android Studio.app/sdk"
+GRADLE_OPTS="-Xms512m -Xmx1024m"
+
 declare -a bins=(
     "/usr/bin"
     "$HOME/bin"
     "$HOME/dotfiles/bin"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
+    "/usr/local/share/python"
+    "$ANDROID_HOME/tools"
+    "$ANDROID_HOME/platform-tools"
+    "$ANDROID_HOME/build-tools/19.0.0"
 )
 
 # If these bins exist, then add them to the PATH
 for index in ${!bins[*]}
 do
-    if [ -d ${bins[$index]} ]; then
+    if [[ -d ${bins[$index]} ]]; then
         PATH="$PATH:${bins[$index]}"
     fi
 done
 
 unset bins
+
+# Set Sublime Text 2 as editor with wait command
+export EDITOR="subl -w"
+
+export export ANDROID_HOME GRADLE_OPTS
+
+launchctl setenv ANDROID_HOME "$ANDROID_HOME"
+launchctl setenv GRADLE_OPTS "$GRADLE_OPTS"
 
 export PATH
