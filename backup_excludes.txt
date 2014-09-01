@@ -32,4 +32,5 @@ Saved\ Application\ State
 .Trashes
 /Backups.backupdb
 /.MobileBackups
+/.MobileBackups.trash
 

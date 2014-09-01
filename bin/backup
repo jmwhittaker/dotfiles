@@ -81,7 +81,8 @@ BLESS="/usr/sbin/bless"
 
 # Set backup targets
 SRC="/"
-DST="/Volumes/LAGUNITAS/"
+DST="/Volumes/Rooibos/"
+# DST="/Volumes/LAGUNITAS/"
 RSYNC_EXC="$HOME/dotfiles/backup_excludes.txt"
 
 # Check if $SRC is readable and $DST is writeable

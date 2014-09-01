@@ -37,3 +37,8 @@ shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+#rbenv
+eval "$(rbenv init -)"
+
+[[ -s /Users/jmwhittaker/.nvm/nvm.sh ]] && . /Users/jmwhittaker/.nvm/nvm.sh # This loads NVM
